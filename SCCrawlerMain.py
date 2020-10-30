@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import SCCrawler
 import time
 import re
