@@ -1,1 +1,1 @@
-nohup python3 -u SCCrawlerMain.py > Log.log &
+nohup /usr/local/bin/python3.9 -u SCCrawlerMain.py > output.log &
