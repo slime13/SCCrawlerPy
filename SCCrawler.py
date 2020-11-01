@@ -51,7 +51,8 @@ def crawl(endNumber = -1):
 				sql = "SELECT * FROM crawling_sckr WHERE board_sn = '%s'" % targetPage['UID']
 				cur.execute(sql)
 				rows = cur.fetchall()
-				print(rows)
+				if(len(rows) == 0):
+					continue
 				#DB에 입력
 				result = parsePage(page, url, targetPage['REGION'])
 				sql = "INSERT INTO crawling_sckr VALUES (%s, '%s', '%s', '%s', '%s', '%s', '')" % (targetPage['UID'], result['location'], result['title'], result['date'], result['contents'], result['url'])
