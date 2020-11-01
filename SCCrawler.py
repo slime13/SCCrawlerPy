@@ -8,7 +8,6 @@ def crawl(endNumber = -1):
 	#DB 연결
 	try:
 		conn = psycopg2.connect(database="dsidb", user="postgres", password="developer#!", host="121.129.214.6", port="8432")
-		cur = conn.cursur()
 	except Exception as inst:
 		print(inst)
 		return 1
