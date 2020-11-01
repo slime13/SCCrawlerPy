@@ -41,14 +41,15 @@ def parsePage(page, url, region):
 	for div in _contents_.findAll('div', {'class': 'hwp_editor_board_content'}):
 		div.decompose()
 	result['contents'] = bytes(_contents_.get_text(), 'utf-8').decode('utf-8', 'ignore').replace('\n', '')
-	result['contents'] = result['contents'].replace("'", "''")
+	result['contents'] = result['contents'].replace("'", "''").strip()
 	return result
 
 if __name__ == '__main__':
 	#실행 테스트
 	print('Start Module Testing for SCPageParser.', flush=True)
-	id = 1162
-	url = "https://www.socialchange.kr/daegu/guest/proposition/view?id=" + str(id)
+	region = 'jeonnam'
+	id = 1970
+	url = "https://www.socialchange.kr/%s/guest/proposition/view?id=%s" % (region,str(id))
 	try:
 		req = requests.get(url)
 		page = req.text
