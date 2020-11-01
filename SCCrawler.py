@@ -47,15 +47,12 @@ def crawl(endNumber = -1):
 				print(inst)
 				continue
 			try:
-				#f = open('dump/%s.txt' % (targetPage['REGION'] + '-' + targetPage['UID']), 'w', encoding='utf-8')
-				#for key in result:
-				#	f.write('%s: %s\n' % (key, result[key]))
-				#f.close()
-				#############DB에 입력##############
+				#중복 검사
+
+				#DB에 입력
 				result = parsePage(page, url, targetPage['REGION'])
 				sql = "INSERT INTO crawling_sckr VALUES (%s, '%s', '%s', '%s', '%s', '%s', '')" % (targetPage['UID'], result['location'], result['title'], result['date'], result['contents'], result['url'])
 				cur.execute(sql)
-				###################################
 			except Exception as inst:
 				print(inst)
 				print('FAIL TO PARSE PAGE #%s' % targetPage['UID'])
