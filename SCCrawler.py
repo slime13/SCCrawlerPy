@@ -55,6 +55,7 @@ def crawl(endNumber = -1):
 				rows = cur.fetchall()
 				print(rows, flush=True)
 				if(len(rows) != 0):
+					print('fuck')
 					dupeCount += 1
 					continue
 				#DB에 입력
