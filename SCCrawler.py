@@ -53,6 +53,7 @@ def crawl(endNumber = -1):
 				sql = "SELECT * FROM crawling_sckr WHERE board_sn = '%s'" % targetPage['UID']
 				cur.execute(sql)
 				rows = cur.fetchall()
+				print(rows, flush=True)
 				if(len(rows) != 0):
 					dupeCount += 1
 					continue
