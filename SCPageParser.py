@@ -41,6 +41,7 @@ def parsePage(page, url, region):
 	for div in _contents_.findAll('div', {'class': 'hwp_editor_board_content'}):
 		div.decompose()
 	result['contents'] = bytes(_contents_.get_text(), 'utf-8').decode('utf-8', 'ignore').replace('\n', '')
+	result['contents'] = result['contents'].replace("'", "''")
 	return result
 
 if __name__ == '__main__':
