@@ -1,7 +1,0 @@
-location: 대구
-title: 36. 청년 갭이어 프로그램 - 2019 대구청년정책네트워크 청년생활정책학교 자료집
-date: 2019-10-11T18:43:00
-motivation: 
-contents: [의제 해결의 필요성]   청년이 주체가 되어 자율적 청년갭이어 프로그램을 지원하자. [실행계획]   청년갭이어 프로그램을 설계하고 지원한다. [문제가 해결되면 누가 어떤 혜택을 볼까요?]   청년 [협업하고 싶은 곳]   청년, 청년정책과, 관련 전문가
-url: https://www.socialchange.kr/daegu/guest/proposition/view?id=1162
-category: NULL
