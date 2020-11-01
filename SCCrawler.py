@@ -53,7 +53,7 @@ def crawl(endNumber = -1):
 				#f.close()
 				#############DB에 입력##############
 				result = parsePage(page, url, targetPage['REGION'])
-				sql = "INSERT INTO crawling_sckr VALUES (%s, %s, %s, %s, %s, %s, '')" % (targetPage['UID'], result['location'], result['title'], result['date'], result['contents'], result['url'])
+				sql = "INSERT INTO crawling_sckr VALUES (%s, '%s', '%s', '%s', '%s', '%s', '')" % (targetPage['UID'], result['location'], result['title'], result['date'], result['contents'], result['url'])
 				cur.execute(sql)
 				###################################
 			except Exception as inst:
