@@ -53,9 +53,7 @@ def crawl(endNumber = -1):
 				sql = "SELECT * FROM crawling_sckr WHERE board_sn = '%s'" % targetPage['UID']
 				cur.execute(sql)
 				rows = cur.fetchall()
-				print(rows, flush=True)
 				if(len(rows) != 0):
-					print('fuck')
 					dupeCount += 1
 					continue
 				#DB에 입력
@@ -66,7 +64,7 @@ def crawl(endNumber = -1):
 				print(inst)
 				print('FAIL TO PARSE PAGE #%s' % targetPage['UID'])
 		#endNumber가 정의 되어 있을 경우, endNumber에서 탐색 종료 
-		if pageNumber == endNumber:
+		if pageNumber >= endNumber:
 			break
 		#중복이 10회를 넘을 경우, 크롤링을 종료.
 		if dupeCount == MAX_DUPLICATION:
