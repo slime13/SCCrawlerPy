@@ -1,16 +1,15 @@
-#!/usr/local/bin/python3.9
 import SCCrawler
 import time
 import re
 import threading
 
+"""
+
+"""
+
 CRAWLING_PERIOD = None
 MULTIPLIER = (31536000, 259200, 86400, 3600)
 crawlingInterval = 0
-
-def threadTest():
-	print('fuck!', flush=True)
-	return 0
 
 def threadStarter():
 	threading.Timer(crawlingInterval, threadStarter).start()

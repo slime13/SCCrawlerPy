@@ -1,7 +1,9 @@
 import requests
 from bs4 import BeautifulSoup as bs
 
-#location title date contents url category=null
+"""
+
+"""
 
 def removeSpace(str):
 	result = str.replace('\r', '')

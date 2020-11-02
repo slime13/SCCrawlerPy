@@ -4,6 +4,10 @@ from bs4 import BeautifulSoup as bs
 from SCPageParser import parsePage
 import psycopg2
 
+"""
+
+"""
+
 def crawl(endNumber = -1):
 	#DB 연결
 	try:
