@@ -3,4 +3,5 @@ applications:
 - name: SCCrawler
   buildpack: python_buildpack
   memory: 512M
-  instances: 1   
+  instances: 1
+  command: python SCCrawlerMain.py   
