@@ -14,7 +14,7 @@ crawlingInterval = 0
 def threadStarter():
 	threading.Timer(crawlingInterval, threadStarter).start()
 	SCCrawler.crawl()
-	print('Crawling done. (%s)' % time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()), flush=True)
+	print('Crawling done. (%s)' % time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()))
 
 if __name__ == '__main__':
 	

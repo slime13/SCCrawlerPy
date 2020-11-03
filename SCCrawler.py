@@ -72,7 +72,7 @@ def crawl(endNumber = -1):
 			break
 		#중복이 10회를 넘을 경우, 크롤링을 종료.
 		if dupeCount >= MAX_DUPLICATION:
-			print('Exceeded max duplication count. Aborting crawling.', flush=True)
+			print('Exceeded max duplication count. Aborting crawling.')
 			break
 		#페이지 넘김
 		targetPage.clear()
