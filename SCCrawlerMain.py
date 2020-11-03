@@ -2,6 +2,7 @@ import SCCrawler
 import time
 import re
 import threading
+import sys
 
 """
 
@@ -17,7 +18,8 @@ def threadStarter():
 	print('Crawling done. (%s)' % time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()))
 
 if __name__ == '__main__':
-	
+	reload(sys) 
+	sys.setdefaultencoding('utf-8')
 	configFile = open('config.ini', 'r', encoding='utf-8')
 	lines = configFile.readlines()
 
