@@ -48,7 +48,7 @@ def parsePage(page, url, region):
 
 if __name__ == '__main__':
 	#실행 테스트
-	print('Start Module Testing for SCPageParser.', flush=True)
+	print('Start Module Testing for SCPageParser.')
 	region = 'gwangju'
 	id = 1938
 	url = "https://www.socialchange.kr/%s/guest/proposition/view?id=%s" % (region,str(id))

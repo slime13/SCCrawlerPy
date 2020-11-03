@@ -81,8 +81,8 @@ def crawl(endNumber = -1):
 	conn.close()
 
 if __name__ == '__main__':
-	print('Start Module Testing for SCCrawler.', flush=True)
+	print('Start Module Testing for SCCrawler.')
 	crawl(1)
-	print('Done.', flush=True)
+	print('Done.')
 		
 		
