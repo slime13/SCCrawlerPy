@@ -23,7 +23,7 @@ def crawl(endNumber = -1):
 	dupeCount = 0
 
 	while(1):
-		#제안과제 리스트 파싱
+
 		target_pages = []
 		url = 'https://www.socialchange.kr/guest?page=%d&currentPageNo=1&process=B&orderField=regDate&orderType=desc' % pageNumber
 		try:
@@ -34,7 +34,7 @@ def crawl(endNumber = -1):
 			print(inst)
 			break
 		elements = soup.select('a.hotView');
-		#페이지에 더 이상 Entry가 없는 경우 종료
+
 		if(len(elements) == 0):
 			break
 		for element in elements:
@@ -43,7 +43,6 @@ def crawl(endNumber = -1):
 			uid = element['data-propoistionuid']
 			target_pages.append({'URL': url, 'REGION': region, 'UID': uid})
 
-		#각 페이지를 수집
 		for targetPage in target_pages:
 			url = 'https://www.socialchange.kr/%s' % targetPage['URL']
 			try:
@@ -53,28 +52,23 @@ def crawl(endNumber = -1):
 				print(inst)
 				continue
 			try:
-				#중복 검사
 				sql = "SELECT * FROM crawling_sckr WHERE board_sn = '%s'" % targetPage['UID']
 				cur.execute(sql)
 				rows = cur.fetchall()
 				if(len(rows) != 0):
 					dupeCount += 1
 					continue
-				#DB에 입력
 				result = parsePage(page, url, targetPage['REGION'])
 				sql = "INSERT INTO crawling_sckr VALUES (%s, '%s', '%s', '%s', '%s', '%s', '')" % (targetPage['UID'], result['location'], result['title'], result['date'], result['contents'], result['url'])
 				cur.execute(sql)
 			except Exception as inst:
 				print(inst)
 				print('FAIL TO PARSE PAGE #%s' % targetPage['UID'])
-		#endNumber가 정의 되어 있을 경우, endNumber에서 탐색 종료 
 		if pageNumber == endNumber:
 			break
-		#중복이 10회를 넘을 경우, 크롤링을 종료.
 		if dupeCount >= MAX_DUPLICATION:
 			print('Exceeded max duplication count. Aborting crawling.')
 			break
-		#페이지 넘김
 		targetPage.clear()
 		pageNumber += 1
 

@@ -16,29 +16,23 @@ def parsePage(page, url, region):
 	soup = bs(page, 'html.parser')
 	
 	result['url'] = url
-
-	#지역(location) 파싱
-	#_location_ = soup.select('div.kind p span')[0].text
 	result['location'] = region
 
-	#제목(title) 파싱
 	_title_ = soup.select('h3.title_main')[0].text
 	_title_ = removeSpace(_title_)
 	result['title'] = _title_
 
-	#날짜(date) 파싱
 	_date_ = soup.select('p.date')[0].text
 	_time_ = soup.select('p.time')[0].text
-	#ISO FORMAT으로 변경
+
 	_date_ = _date_.replace('년 ', '-').replace('월 ', '-').replace('일', '')
 	_time_ = _time_.replace('시 ', ':').replace('분', '') + ':00'
 	result['date'] = _date_ + 'T' + _time_
 
-	#제안배경(motivation) 파싱
+
 	_motivation_ = removeSpace(soup.select('div.summaryContents')[0].text)
 	result['motivation'] = bytes(_motivation_, 'utf-8').decode('utf-8', 'ignore')
 
-	#내용(content) 파싱
 	_contents_ = soup.select('div.step_wrap div.step_box')[0]
 	for div in _contents_.findAll('div', {'class': 'hwp_editor_board_content'}):
 		div.decompose()
@@ -47,7 +41,7 @@ def parsePage(page, url, region):
 	return result
 
 if __name__ == '__main__':
-	#실행 테스트
+
 	print('Start Module Testing for SCPageParser.')
 	region = 'gwangju'
 	id = 1938

@@ -21,7 +21,6 @@ if __name__ == '__main__':
 	configFile = open('config.ini', 'r', encoding='utf-8')
 	lines = configFile.readlines()
 
-	#설정파일 읽기
 	for line in lines:
 		if (line[0] == '#' or line[0] == '\n'):
 			continue
