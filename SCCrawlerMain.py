@@ -1,3 +1,4 @@
+#coding: utf-8
 import sys
 
 reload(sys) 
@@ -22,7 +23,7 @@ def threadStarter():
 
 if __name__ == '__main__':
 
-	configFile = open('config.ini', 'r', encoding='utf-8')
+	configFile = open('config.ini', 'r')
 	lines = configFile.readlines()
 
 	for line in lines:

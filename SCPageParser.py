@@ -1,3 +1,5 @@
+#coding: utf-8
+
 import requests
 from bs4 import BeautifulSoup as bs
 
@@ -54,7 +56,7 @@ if __name__ == '__main__':
 
 	result = parsePage(page, url, '대구')
 	
-	f = open('dump/test.txt', 'w', encoding='utf-8')
+	f = open('dump/test.txt', 'w')
 
 	for key in result:
 		f.write('%s: %s\n' % (key, result[key]))
