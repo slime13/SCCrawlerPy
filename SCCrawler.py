@@ -6,8 +6,6 @@ from bs4 import BeautifulSoup as bs
 from SCPageParser import parsePage
 import psycopg2
 
-
-
 """
 Function "crawl()"
 Performs crawling on https://www.socialchange.kr
@@ -15,9 +13,9 @@ Parse list page first, take each url of documents,
 then performs crawling on each document.
 
 * Parameters
-- endNumber : Define termination point of crawling process. If it is provided, crawling process ends on that page number.
-              Default value = -1.
-
+- endNumber (Integer): 
+    Define termination point of crawling process. If it is provided, crawling process ends on that page number.
+    Default value = -1.
 """
 def crawl(endNumber = -1):
 

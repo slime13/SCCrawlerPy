@@ -4,15 +4,25 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 """
-
+Function "removeSpace()"
+Removes space from a string
+* Parameters
+   - str (String) : A string to remove space.
 """
-
 def removeSpace(str):
 	result = str.replace('\r', '')
 	result = result.replace('\n', '')
 	result = result.replace('\t', '')
 	return result
 
+"""
+Function "parsePage()"
+Parses document, returns result.
+* Parameters
+   - page (String) : Raw text (HTML) of a document.
+   - url (String) : URL of a document.
+   - region (String) : City title of a document.
+"""
 def parsePage(page, url, region):
 	result = {'location': None, 'title': None, 'date': None, 'motivation': None, 'contents': None, 'url': None, 'category': 'NULL'}
 	soup = bs(page, 'html.parser')
@@ -42,6 +52,7 @@ def parsePage(page, url, region):
 	result['contents'] = result['contents'].replace("'", "''").strip()
 	return result
 
+# Testing
 if __name__ == '__main__':
 
 	print('Start Module Testing for SCPageParser.')
